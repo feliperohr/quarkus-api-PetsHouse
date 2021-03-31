@@ -1,11 +1,19 @@
 package model.customer;
 
-import model.customer.Customer;
+import model.notification.Notification;
+import model.task.Task;
 
-public class PetOwner extends Customer {
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-    public PetOwner() {
+@Entity
+public class PetOwner extends Customer{
 
-    }
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    private Task task;
+
+    @OneToMany(mappedBy = "pet_owner")
+    private List<Notification> list = new ArrayList<>();
 
 }

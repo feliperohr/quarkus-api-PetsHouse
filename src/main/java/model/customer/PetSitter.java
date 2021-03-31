@@ -1,11 +1,16 @@
 package model.customer;
 
-import model.customer.Customer;
+import model.notification.Notification;
 
-public class PetSitter extends Customer {
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-    public PetSitter() {
+@Entity
+public class PetSitter extends Customer{
 
-    }
+    @OneToOne(mappedBy = "pet_sitter")
+    private Notification notification;
+
 
 }

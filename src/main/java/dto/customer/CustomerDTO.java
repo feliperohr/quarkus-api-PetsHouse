@@ -5,10 +5,9 @@ import model.customer.Customer;
 
 public abstract class CustomerDTO {
 
-    private long id;
-    private String login;
-    private String password;
-//    private ProfileDTO profileDTO;
+    protected long id;
+    protected String login;
+    protected String password;
 
     public CustomerDTO() {
     }
@@ -16,14 +15,12 @@ public abstract class CustomerDTO {
     public CustomerDTO(String login, String password) {
         this.login = login;
         this.password = password;
-//        this.profileDTO = profileDTO;
     }
 
 //    public CustomerDTO(long id, String login, String password) {
 //        this.id = id;
 //        this.login = login;
 //        this.password = password;
-////        this.profileDTO = profileDTO;
 //    }
 
 //    public CustomerDTO(Customer customer) {
@@ -59,11 +56,4 @@ public abstract class CustomerDTO {
         this.password = password;
     }
 
-//    public ProfileDTO getProfileDTO() {
-//        return profileDTO;
-//    }
-//
-//    public void setProfileDTO(ProfileDTO profileDTO) {
-//        this.profileDTO = profileDTO;
-//    }
 }

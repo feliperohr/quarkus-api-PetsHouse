@@ -11,9 +11,7 @@ import javax.persistence.*;
 public class Profile extends PanacheEntity {
 
     private String name;
-
     private String cpf;
-
     private String phone;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -53,5 +51,13 @@ public class Profile extends PanacheEntity {
 
     public void setAnimalType(AnimalType animalType) {
         this.animalType = animalType;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

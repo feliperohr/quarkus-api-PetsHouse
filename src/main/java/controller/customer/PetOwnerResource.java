@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 
-@Path("api/customer")
+@Path("api/customer/petOwner")
 public class PetOwnerResource {
 
     @Inject

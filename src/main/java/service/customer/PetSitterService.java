@@ -1,32 +1,29 @@
 package service.customer;
 
 import dto.customer.CustomerDTO;
-import dto.customer.PetOwnerDTO;
 import model.customer.Customer;
-import model.customer.PetOwner;
+import model.customer.PetSitter;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-
 import java.util.List;
 
-
 @ApplicationScoped
-public class PetOwnerService{
+public class PetSitterService {
 
-    public PetOwner findCustomerById(long id) {
-        return PetOwner.findById(id);
+    public PetSitter findCustomerById(long id) {
+        return PetSitter.findById(id);
     }
 
-    public List<PetOwner> findAll() {
-        return PetOwner.listAll();
+    public List<PetSitter> findAll() {
+        return PetSitter.listAll();
     }
 
     @Transactional
     public void persistCustomer(@Valid CustomerDTO dto) {
-        PetOwner petOwner = new PetOwner(dto);
-        petOwner.persist();
+        PetSitter petSitter = new PetSitter(dto);
+        petSitter.persist();
 
     }
 
@@ -35,5 +32,4 @@ public class PetOwnerService{
         Customer customer = Customer.findById(id);
         customer.delete();
     }
-
 }

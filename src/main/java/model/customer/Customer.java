@@ -13,9 +13,6 @@ public abstract class Customer extends PanacheEntity {
     protected String login;
     protected String password;
 
-//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
-//    protected Profile profile;
-
     public Customer() {
     }
 
@@ -35,11 +32,4 @@ public abstract class Customer extends PanacheEntity {
         this.password = password;
     }
 
-//    public Profile getProfile() {
-//        return profile;
-//    }
-//
-//    public void setProfile(Profile profile) {
-//        this.profile = profile;
-//    }
 }

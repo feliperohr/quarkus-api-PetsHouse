@@ -1,5 +1,7 @@
 package model.customer;
 
+import dto.customer.CustomerDTO;
+import dto.customer.PetOwnerDTO;
 import model.notification.Notification;
 import model.task.Task;
 
@@ -16,4 +18,34 @@ public class PetOwner extends Customer{
     @OneToMany(mappedBy = "pet_owner")
     private List<Notification> list = new ArrayList<>();
 
+    public PetOwner() {
+    }
+
+    public PetOwner(CustomerDTO dto) {
+        this.login = dto.getLogin();
+        this.password = dto.getPassword();
+    }
+
+//    public PetOwner(PetOwnerDTO dto) {
+//
+//    }
+
+
+
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    public List<Notification> getList() {
+        return list;
+    }
+
+    public void setList(List<Notification> list) {
+        this.list = list;
+    }
 }

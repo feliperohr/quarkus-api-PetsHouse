@@ -10,16 +10,11 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Customer extends PanacheEntity {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "customer_id")
-//    private Long id;
+    protected String login;
+    protected String password;
 
-    private String login;
-    private String password;
-
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
-    public Profile profile;
+//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
+//    protected Profile profile;
 
     public Customer() {
     }
@@ -40,11 +35,11 @@ public abstract class Customer extends PanacheEntity {
         this.password = password;
     }
 
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
+//    public Profile getProfile() {
+//        return profile;
+//    }
+//
+//    public void setProfile(Profile profile) {
+//        this.profile = profile;
+//    }
 }

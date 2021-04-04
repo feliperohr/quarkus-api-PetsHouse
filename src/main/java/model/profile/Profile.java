@@ -1,7 +1,9 @@
 package model.profile;
 
+import dto.profile.ProfileDTO;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import model.customer.Customer;
+import model.customer.PetOwner;
 
 import javax.persistence.*;
 
@@ -14,12 +16,23 @@ public class Profile extends PanacheEntity {
     private String cpf;
     private String phone;
 
+    @Enumerated(EnumType.STRING)
+    private AnimalType animalType;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     public Customer customer;
 
-    @Enumerated(EnumType.STRING)
-    private model.profile.AnimalType animalType;
+    public Profile() {
+    }
+
+    public Profile(ProfileDTO dto) {
+        this.name = dto.getName();
+        this.cpf = dto.getCpf();
+        this.phone = dto.getPhone();
+        this.animalType = dto.getAnimalType();
+        this.customer = new Customer(dto.getCustomer());
+    }
 
     public String getName() {
         return name;

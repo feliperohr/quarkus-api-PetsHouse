@@ -1,5 +1,6 @@
 package controller.profile;
 
+import dto.profile.ProfileDTO;
 import model.profile.Profile;
 import service.profile.ProfileService;
 
@@ -23,10 +24,8 @@ public class ProfileResource {
     }
 
     @POST
-    @Transactional
-    public Response create(
-            @Valid Profile p) {
-        service.persist(p);
+    public Response create(@Valid ProfileDTO dto) {
+        service.persist(dto);
         return Response.ok().build();
     }
 

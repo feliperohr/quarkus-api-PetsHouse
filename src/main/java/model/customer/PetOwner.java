@@ -30,9 +30,6 @@ public class PetOwner extends Customer{
 //
 //    }
 
-
-
-
     public Task getTask() {
         return task;
     }
@@ -48,4 +45,6 @@ public class PetOwner extends Customer{
     public void setList(List<Notification> list) {
         this.list = list;
     }
+
+
 }

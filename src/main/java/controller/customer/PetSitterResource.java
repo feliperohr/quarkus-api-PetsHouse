@@ -32,7 +32,7 @@ public class PetSitterResource {
     }
 
     @POST
-    public Response createCustomer(@Valid PetSitterDTO dto) {
+    public Response createCustomer(@Valid CustomerDTO dto) {
         service.persistCustomer(dto);
         return Response.ok().build();
     }

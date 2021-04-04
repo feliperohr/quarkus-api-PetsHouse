@@ -1,37 +1,39 @@
 package dto.profile;
 
+import dto.customer.CustomerDTO;
 import model.customer.Customer;
 import model.profile.AnimalType;
 import model.profile.Profile;
 
 public class ProfileDTO {
 
-    private long id;
     private String name;
     private String cpf;
     private String phone;
     private AnimalType animalType;
-    private Customer customer;
+    private CustomerDTO customer;
 
     public ProfileDTO() {
     }
 
+    public ProfileDTO(CustomerDTO customer, String name, String cpf, String phone, AnimalType animalType) {
+        this.name = name;
+        this.cpf = cpf;
+        this.phone = phone;
+        this.animalType = animalType;
+        this.customer = customer;
+    }
+
     public ProfileDTO(Profile profile) {
-        this.id = profile.id;
         this.name = profile.getName();
         this.cpf = profile.getCpf();
         this.phone = profile.getPhone();
         this.animalType = profile.getAnimalType();
-        this.customer = profile.getCustomer();
+        this.customer = new CustomerDTO(profile.getCustomer());
+        this.customer.setId(profile.getCustomer().id);
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -65,11 +67,12 @@ public class ProfileDTO {
         this.animalType = animalType;
     }
 
-    public Customer getCustomer() {
+    public CustomerDTO getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(CustomerDTO customer) {
         this.customer = customer;
     }
+
 }

@@ -1,8 +1,7 @@
 package dto.profile;
 
 import dto.customer.CustomerDTO;
-import model.customer.Customer;
-import model.profile.AnimalType;
+import utils.AnimalType;
 import model.profile.Profile;
 
 public class ProfileDTO {

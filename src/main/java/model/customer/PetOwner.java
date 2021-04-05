@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class PetOwner extends Customer{
 
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "customer")
     private Task task;
 
     @OneToMany(mappedBy = "pet_owner")
@@ -21,7 +21,11 @@ public class PetOwner extends Customer{
     public PetOwner() {
     }
 
-    public PetOwner(CustomerDTO dto) {
+//    public PetOwner(CustomerDTO dto){
+//
+//    }
+
+    public PetOwner(PetOwnerDTO dto) {
         this.login = dto.getLogin();
         this.password = dto.getPassword();
     }

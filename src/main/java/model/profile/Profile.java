@@ -3,13 +3,13 @@ package model.profile;
 import dto.profile.ProfileDTO;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import model.customer.Customer;
-import model.customer.PetOwner;
+import utils.AnimalType;
 
 import javax.persistence.*;
 
 
 @Entity
-@Table(uniqueConstraints={@UniqueConstraint(columnNames="cpf")})
+//@Table(uniqueConstraints={@UniqueConstraint(columnNames="cpf")})
 public class Profile extends PanacheEntity {
 
     private String name;

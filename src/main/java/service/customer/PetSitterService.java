@@ -1,6 +1,8 @@
 package service.customer;
 
 import dto.customer.CustomerDTO;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import model.customer.Customer;
 import model.customer.PetSitter;
 
@@ -12,8 +14,11 @@ import java.util.List;
 @ApplicationScoped
 public class PetSitterService {
 
-    public PetSitter findCustomerById(long id) {
-        return PetSitter.findById(id);
+    public CustomerDTO findCustomerById(long id) {
+        PanacheQuery<PanacheEntityBase> result = Customer.find("id", id);
+        Customer customer = result.firstResult();
+
+        return new CustomerDTO(customer);
     }
 
     public List<PetSitter> findAll() {

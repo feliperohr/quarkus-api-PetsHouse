@@ -21,18 +21,24 @@ public class CustomerDTO {
         this.id = customer.id;
         this.login = customer.getLogin();
         this.password = customer.getPassword();
-//        this.profile = new ProfileDTO(
-//                                new CustomerDTO(id),
-//                                customer.getProfile().getName(),
-//                                customer.getProfile().getCpf(),
-//                                customer.getProfile().getPhone(),
-//                                customer.getProfile().getAnimalType());
+        this.profile = new ProfileDTO(
+                                new CustomerDTO(id),
+                                customer.getProfile().getName(),
+                                customer.getProfile().getCpf(),
+                                customer.getProfile().getPhone(),
+                                customer.getProfile().getAnimalType());
     }
 
-//    public CustomerDTO(String login, String password) {
-//        this.login = login;
-//        this.password = password;
-//    }
+    public CustomerDTO(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
+    public CustomerDTO(long id, String login, String password) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+    }
 
 
     public long getId() {

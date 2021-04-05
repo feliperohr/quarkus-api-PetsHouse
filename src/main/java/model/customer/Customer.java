@@ -14,7 +14,7 @@ public class Customer extends PanacheEntity {
     protected String login;
     protected String password;
 
-    @OneToOne(mappedBy = "customer")
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     protected Profile profile;
 
     public Customer(CustomerDTO dto){

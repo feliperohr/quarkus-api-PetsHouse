@@ -30,9 +30,6 @@ public class PetOwner extends Customer{
         this.password = dto.getPassword();
     }
 
-//    public PetOwner(PetOwnerDTO dto) {
-//
-//    }
 
     public Task getTask() {
         return task;

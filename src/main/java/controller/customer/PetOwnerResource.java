@@ -1,17 +1,17 @@
 package controller.customer;
 
 
+import dto.customer.CustomerDTO;
 import dto.customer.PetOwnerDTO;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
 import service.customer.PetOwnerService;
 
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
-import java.util.List;
+
 
 
 @Path("api/customer/petOwner")
@@ -26,6 +26,12 @@ public class PetOwnerResource {
         return Response.ok(service.findCustomerById(id)).build();
     }
 
+    @GET
+    @Path("/username/{filter}")
+    public Response getAllTaskByFilter(@PathParam("filter") String filter){
+        return Response.ok(service.findByLogin(filter)).build();
+    }
+
     @POST
     @Path("new")
     public Response createCustomer(@Valid PetOwnerDTO dto) {
@@ -35,7 +41,7 @@ public class PetOwnerResource {
 
     @POST
     @Path("login")
-    public Response login(@Valid PetOwnerDTO dto) {
+    public Response login(@Valid CustomerDTO dto) {
         dto = service.login(dto);
         if(dto == null){
             return Response

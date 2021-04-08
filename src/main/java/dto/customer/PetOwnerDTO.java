@@ -3,6 +3,7 @@ package dto.customer;
 import dto.notification.NotificationDTO;
 import dto.task.TaskDTO;
 import model.customer.PetOwner;
+import model.profile.Profile;
 
 public class PetOwnerDTO extends CustomerDTO{
 

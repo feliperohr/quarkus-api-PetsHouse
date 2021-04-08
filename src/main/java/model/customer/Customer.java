@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Customer extends PanacheEntity {
 
+    @Column(unique = true)
     protected String login;
     protected String password;
 

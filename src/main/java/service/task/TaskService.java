@@ -1,6 +1,5 @@
 package service.task;
 
-import Mentoring.MentoringDTO;
 import dto.task.TaskDTO;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;

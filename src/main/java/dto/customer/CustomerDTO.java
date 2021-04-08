@@ -34,11 +34,11 @@ public class CustomerDTO {
         this.password = password;
     }
 
-    public CustomerDTO(long id, String login, String password) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-    }
+//    public CustomerDTO(long id, String login, String password) {
+//        this.id = id;
+//        this.login = login;
+//        this.password = password;
+//    }
 
 
     public long getId() {

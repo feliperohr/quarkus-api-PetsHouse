@@ -19,6 +19,12 @@ import javax.validation.Valid;
 public class PetOwnerService{
 
 
+    public CustomerDTO findByLogin(String login) {
+        PanacheQuery<PanacheEntityBase> result = Customer.find("login", login);
+        Customer customer = result.firstResult();
+        return new CustomerDTO(customer.id);
+    }
+
     public CustomerDTO findCustomerById(long id) {
         PanacheQuery<PanacheEntityBase> result = PetOwner.find("id", id);
         PetOwner customer = result.firstResult();
@@ -31,12 +37,13 @@ public class PetOwnerService{
         petOwner.persist();
     }
 
-    public PetOwnerDTO login(PetOwnerDTO dto) {
+    public CustomerDTO login(CustomerDTO dto) {
         PanacheQuery<PanacheEntityBase> result = PetOwner.find("login", dto.getLogin());
         PetOwner petOwner = result.firstResult();
 
         if (petOwner != null && petOwner.getPassword().equals(dto.getPassword())) {
-            return new PetOwnerDTO(petOwner.id, petOwner.getLogin());
+            return new CustomerDTO(petOwner);
+//            return new PetOwnerDTO(petOwner.id, petOwner.getLogin());
         } else {
             return null;
         }

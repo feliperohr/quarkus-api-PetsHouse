@@ -1,6 +1,6 @@
 package dto.customer;
 
-public class PetSitterDTO{
+public class PetSitterDTO extends CustomerDTO{
 
     public PetSitterDTO(){
 
